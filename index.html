@@ -7,37 +7,40 @@
 		<title>Calculator</title>
 	</head>
 	<body>
-		<header>
-			<div>
-				<input type="text" id="display" />
-			</div>
-			<div>
-				<input type="text" id="main-input" name="main-input" />
-			</div>
-		</header>
-		<section>
-			<div class="input-buttons">
-				<button id="clear">C</button>
-				<button id="posneg">+/-</button>
-				<button id="percent">%</button>
-				<button id="divide">/</button>
-				<button id="seven">7</button>
-				<button id="eight">8</button>
-				<button id="nine">9</button>
-				<button id="times">*</button>
-				<button id="four">4</button>
-				<button id="five">5</button>
-				<button id="six">6</button>
-				<button id="minus">-</button>
-				<button id="one">1</button>
-				<button id="two">2</button>
-				<button id="three">3</button>
-				<button id="plus">+</button>
-				<button id="zero">0</button>
-				<button id="point">.</button>
-				<button id="equals">=</button>
-			</div>
-		</section>
+		<div class="calculator-body">
+			<header>
+				<div>
+					<input type="text" id="display" disabled />
+				</div>
+				<div>
+					<input type="text" id="main-input" name="main-input" />
+				</div>
+			</header>
+			<section>
+				<div class="input-buttons">
+					<button class="btn" id="clear" value="Escape">C</button>
+					<button class="btn" id="posneg" value="-">+/-</button>
+					<button class="btn" id="percent" value="*100">%</button>
+					<button class="btn" id="backspace" value="Backspace">⬅</button>
+					<button class="btn" id="seven" value="7">7</button>
+					<button class="btn" id="eight" value="8">8</button>
+					<button class="btn" id="nine" value="9">9</button>
+					<button class="btn" id="divide" value="/">/</button>
+					<button class="btn" id="four" value="4">4</button>
+					<button class="btn" id="five" value="5">5</button>
+					<button class="btn" id="six" value="6">6</button>
+					<button class="btn" id="times" value="*">*</button>
+					<button class="btn" id="one" value="1">1</button>
+					<button class="btn" id="two" value="2">2</button>
+					<button class="btn" id="three" value="3">3</button>
+					<button class="btn" id="minus" value="-">-</button>
+					<button class="btn" id="zero" value="0">0</button>
+					<button class="btn" id="point" value=".">.</button>
+					<button class="btn" id="equals" value="=">=</button>
+					<button class="btn" id="plus" value="+">+</button>
+				</div>
+			</section>
+		</div>
 		<script src="./index.js"></script>
 	</body>
 </html>
