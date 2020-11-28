@@ -24,7 +24,7 @@ div.calculator-body {
 	text-align: right;
 	background-color: antiquewhite;
 	border: hidden;
-	font-weight: bold;
+	/* font-weight: bold; */
 }
 
 #main-input {
