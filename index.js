@@ -10,8 +10,8 @@ const eight = document.querySelector("#eight");
 const nine = document.querySelector("#nine");
 const zero = document.querySelector("#zero");
 const clear = document.querySelector("#clear");
-const posneg = document.querySelector("#posneg");
-const percent = document.querySelector("#percent");
+// const posneg = document.querySelector("#posneg");
+// const percent = document.querySelector("#percent");
 const backspace = document.querySelector("#backspace");
 const divide = document.querySelector("#divide");
 const times = document.querySelector("#times");
@@ -105,17 +105,5 @@ calcBtn.forEach((btn) =>
 		}
 	})
 );
-
-// operators.forEach((sign) =>
-// 	sign.addEventListener("click", function solution() {
-// 		let value1 = parseFloat(inputWindow.value);
-// 		displayWindow.value += inputWindow.value;
-// 		inputWindow.value = "";
-// 		console.log(value1);
-// 		let value2 = parseFloat(inputWindow.value);
-// 		console.log(value2);
-// 		console.log(sign.id);
-// 	})
-// );
 
 //Assign keycodes to calc buttons
