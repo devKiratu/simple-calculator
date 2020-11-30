@@ -38,6 +38,13 @@ backspace.addEventListener("click", () => {
 	inputWindow.value = inputWindow.value.slice(0, -1);
 });
 
+const regex = /\d+(\.\d+)?/;
+inputWindow.addEventListener("input", () => {
+	!regex.test(parseFloat(inputWindow.value))
+		? console.log((inputWindow.value = ""))
+		: null;
+});
+
 //calculator logic
 
 function add(...args) {
@@ -125,10 +132,21 @@ calcBtn.forEach((btn) =>
 operators.forEach((ops) => {
 	ops.addEventListener("click", () => {
 		if (inputWindow.value.match(/\d[+-/*]\d/g)) {
+			console.log(inputWindow.value.charAt(inputWindow.value.length - 2));
 			let toSolve = inputWindow.value.slice(0, -1);
 			solution1(toSolve);
 			inputWindow.value = inputWindow.value + ops.value;
+		} else if (!inputWindow.value.match(/\d+/g)) {
+			inputWindow.value = "";
+		} else if (
+			inputWindow.value.charAt(inputWindow.value.length - 2).match(/[-+/*]/)
+		) {
+			inputWindow.value = inputWindow.value.replace(
+				inputWindow.value.charAt(inputWindow.value.length - 2),
+				""
+			);
 		}
 	});
 });
-//Assign keycodes to calc buttons
+
+//Next task - refactor code
