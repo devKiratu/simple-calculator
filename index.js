@@ -38,35 +38,42 @@ backspace.addEventListener("click", () => {
 	inputWindow.value = inputWindow.value.slice(0, -1);
 });
 
+//calculator logic
+
 function add(...args) {
 	let values = args.flat(Infinity);
 	console.log(values);
-	return values.reduce((acc, val) => acc + val);
+	if (values.length == 2 && !values.includes("")) {
+		return values.reduce((acc, val) => acc + val);
+	}
 }
 function subtract(...args) {
 	let values = args.flat(Infinity);
 	console.log(values);
-
-	return values.reduce((acc, val) => acc - val);
+	if (values.length == 2 && !values.includes("")) {
+		return values.reduce((acc, val) => acc - val);
+	}
 }
 function division(...args) {
 	let values = args.flat(Infinity);
 	console.log(values);
-
-	return values.reduce((acc, val) => acc / val);
+	if (values.length == 2 && !values.includes("")) {
+		return values.reduce((acc, val) => acc / val);
+	}
 }
 function multiply(...args) {
 	let values = args.flat(Infinity);
 	console.log(values);
-
-	return values.reduce((acc, val) => acc * val);
+	if (values.length == 2 && !values.includes("")) {
+		return values.reduce((acc, val) => acc * val);
+	}
 }
 
-function solution1() {
+function solution1(props) {
 	let regex = /[\+\-\*\/]/g;
-	let inputArray = inputWindow.value.split(regex);
+	let inputArray = props.split(regex);
 	console.log(inputArray);
-	let inputSigns = inputWindow.value.match(regex);
+	let inputSigns = props.match(regex);
 	console.log(inputSigns);
 	let floatsArray = inputArray.map((num) => parseFloat(num));
 	console.log(floatsArray);
@@ -89,10 +96,19 @@ function solution1() {
 	displayWindow.value = inputWindow.value;
 	inputWindow.value = answer;
 }
-equals.addEventListener("click", solution1);
+
+//calculator logic ends here
+
+equals.addEventListener("click", () => {
+	let toSolve = inputWindow.value;
+	solution1(toSolve);
+});
 window.addEventListener("keypress", (e) => {
 	if (e.key === "Enter") {
-		solution1();
+		solution1(inputWindow.value);
+	} else if (inputWindow.value.match(/\d[+-/*]\d/g)) {
+		let toSolve = inputWindow.value;
+		solution1(toSolve);
 	}
 });
 
@@ -106,4 +122,13 @@ calcBtn.forEach((btn) =>
 	})
 );
 
+operators.forEach((ops) => {
+	ops.addEventListener("click", () => {
+		if (inputWindow.value.match(/\d[+-/*]\d/g)) {
+			let toSolve = inputWindow.value.slice(0, -1);
+			solution1(toSolve);
+			inputWindow.value = inputWindow.value + ops.value;
+		}
+	});
+});
 //Assign keycodes to calc buttons
