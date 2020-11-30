@@ -116,6 +116,14 @@ window.addEventListener("keypress", (e) => {
 	} else if (inputWindow.value.match(/\d[+-/*]\d/g)) {
 		let toSolve = inputWindow.value;
 		solution1(toSolve);
+	} else if (
+		e.key.match(/[-+/*]/) &&
+		inputWindow.value.charAt(inputWindow.value.length - 1).match(/[-+/*]/)
+	) {
+		inputWindow.value = inputWindow.value.replace(
+			inputWindow.value.charAt(inputWindow.value.length - 1),
+			""
+		);
 	}
 });
 
